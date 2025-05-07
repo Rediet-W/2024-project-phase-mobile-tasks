@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rediet_woudma/home.dart';
+import 'home.dart';
 
 class EditProduct extends StatefulWidget {
   final Product product;
-  const EditProduct({Key? key, required this.product}) : super(key: key);
+  const EditProduct({super.key, required this.product});
 
   @override
   State<EditProduct> createState() => _EditProductState();
