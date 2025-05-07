@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rediet_woudma/addproduct.dart';
-import 'package:rediet_woudma/detail.dart';
-import 'package:rediet_woudma/editproduct.dart';
-import 'package:rediet_woudma/home.dart';
-import 'package:rediet_woudma/search.dart';
+import 'addproduct.dart';
+import 'detail.dart';
+import 'editproduct.dart';
+import 'home.dart';
+import 'search.dart';
 
 void main() {
   runApp(const MyApp());

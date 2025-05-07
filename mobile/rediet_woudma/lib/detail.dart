@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rediet_woudma/home.dart';
+import 'home.dart';
 
 class DetailPage extends StatefulWidget {
   final Product product;
