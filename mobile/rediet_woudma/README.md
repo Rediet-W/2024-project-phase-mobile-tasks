@@ -9,16 +9,6 @@ A simple Flutter e-commerce app demonstrating:
 
 ---
 
-## Table of Contents
-
-1. [Navigation Routes](#navigation-routes)
-2. [Architecture](#architecture)
-3. [Data Flow](#data-flow)
-4. [Directory Structure](#directory-structure)
-5. [Screenshots](#screenshots)
-
----
-
 ## Navigation Routes
 
 The app uses named routes for seamless navigation between screens:
@@ -53,7 +43,7 @@ lib/
 │       │   ├── repositories/ ← `ProductRepository` (contract)
 │       │   └── usecases/     ← Business logic (`ViewAllProductsUsecase`, etc.)
 │       └── presentation/     ← UI layer
-│           ├── blocs/        ← Bloc/Cubit for state management
+│           ├── blocs/        ← Bloc for state management
 │           └── pages/        ← Widgets and screens
 └── main.dart                 ← App entry point and DI setup
 ```
@@ -61,7 +51,7 @@ lib/
 - **Core**: Holds shared abstractions—error handling and the generic UseCase base class.
 - **Data**: Implements the repository contract, maps JSON to models, and caches locally.
 - **Domain**: Pure Dart—entities, abstract repos, and use-case logic.
-- **Presentation**: UI code, BLoCs/Cubits communicate with domain use cases.
+- **Presentation**: UI code, BLoC communicate with domain use cases.
 
 ---
 
