@@ -18,3 +18,8 @@ class ServerFailure extends Failure {
   @override
   List<Object?> get props => [message];
 }
+
+/// Thrown when an error occurs reading or writing local cache.
+class CacheFailure extends Failure {
+  const CacheFailure();
+}
