@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:http/http.dart' as http;
 import '../../../../core/error/failure.dart';
 import '../../../../core/network/network_info.dart';
 import '../../domain/entities/product.dart';
@@ -59,7 +60,8 @@ class ProductRepositoryImpl implements ProductRepository {
   }
 
   @override
-  Future<Either<Failure, Unit>> createProduct(Product product) async {
+  Future<Either<Failure, Unit>> createProduct(Product product,
+      {http.MultipartFile? image}) async {
     try {
       final model = ProductModel(
         id: product.id,
@@ -68,7 +70,7 @@ class ProductRepositoryImpl implements ProductRepository {
         imageUrl: product.imageUrl,
         price: product.price,
       );
-      await remote.createProduct(model);
+      await remote.createProduct(model, image: image);
       return const Right(unit);
     } catch (e) {
       return Left(ServerFailure(e.toString()));

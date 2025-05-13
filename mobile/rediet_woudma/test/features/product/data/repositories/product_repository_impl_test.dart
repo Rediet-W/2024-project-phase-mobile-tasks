@@ -166,21 +166,23 @@ void main() {
 
     test('remote success → returns Right(unit)', () async {
       when(() => mockNetworkInfo.isConnected).thenAnswer((_) async => true);
-      when(() => mockRemote.createProduct(tModel)).thenAnswer((_) async {});
+      when(() => mockRemote.createProduct(tModel, image: null))
+          .thenAnswer((_) async {});
 
-      final result = await repository.createProduct(tEntity);
+      final result = await repository.createProduct(tEntity, image: null);
 
-      verify(() => mockRemote.createProduct(tModel)).called(1);
+      verify(() => mockRemote.createProduct(tModel, image: null)).called(1);
       expect(result, equals(const Right(unit)));
     });
 
     test('remote throws → returns ServerFailure', () async {
       when(() => mockNetworkInfo.isConnected).thenAnswer((_) async => true);
-      when(() => mockRemote.createProduct(tModel)).thenThrow(Exception('fail'));
+      when(() => mockRemote.createProduct(tModel, image: null))
+          .thenThrow(Exception('fail'));
 
-      final result = await repository.createProduct(tEntity);
+      final result = await repository.createProduct(tEntity, image: null);
 
-      verify(() => mockRemote.createProduct(tModel)).called(1);
+      verify(() => mockRemote.createProduct(tModel, image: null)).called(1);
       expect(result, equals(Left(ServerFailure('Exception: fail'))));
     });
   });
